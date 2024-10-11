@@ -5,5 +5,5 @@ str
 
 
 def to_str(n: float) -> str:
-    """str"""
+    """str annotation"""
     return str(float(n))
