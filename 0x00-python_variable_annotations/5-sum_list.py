@@ -4,6 +4,9 @@ list
 """
 
 
-def sum_list(input_list: float) -> float:
+from typing import List
+
+
+def sum_list(input_list: List[float]) -> float:
     """float list annotation"""
     return sum(input_list)
