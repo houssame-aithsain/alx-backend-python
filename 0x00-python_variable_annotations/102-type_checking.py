@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""zoom"""
+"""zoom ..in"""
 
 
 from typing import List, Tuple
