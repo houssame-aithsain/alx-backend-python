@@ -4,9 +4,9 @@ sum_mixed
 """
 
 
-from typing import Union
+from typing import Union, List
 
 
-def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """mixed annotation"""
     return sum(mxd_lst)
