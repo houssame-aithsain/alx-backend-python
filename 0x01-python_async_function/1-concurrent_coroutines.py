@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-""" 
-Takes 2 int arguments: n and max_delay. 
-Spawns n tasks that wait for a random delay (up to max_delay), and returns a list of those delays sorted in ascending order.
 """
-
+Takes 2 int arguments: n and max_delay.
+Spawns n tasks that wait for a random delay (up to max_delay)
+"""
 
 import asyncio
 from typing import List
