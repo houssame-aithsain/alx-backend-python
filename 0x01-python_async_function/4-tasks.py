@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Executes multiple coroutines using task_wait_random and returns list of delays in ascending order.
+Executes multiple coroutines using task_wait_random and.
 """
 
 
@@ -14,9 +14,9 @@ task_wait_random = __import__('3-tasks').task_wait_random
 
 async def task_wait_n(n: int, max_delay: int = 10) -> List[float]:
     """
-    Spawns task_wait_random n times with the specified max_delay and returns the delays in ascending order.
+    Spawns task_wait_random n times with the specified.
     """
-    tasks = [task_wait_random(max_delay) for _ in range(n)]  # Create list of tasks
+    tasks = [task_wait_random(max_delay) for _ in range(n)]
 
     delays = await asyncio.gather(*tasks)  # Wait for all tasks to complete
 
