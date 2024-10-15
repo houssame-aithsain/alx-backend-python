@@ -14,7 +14,7 @@ async def measure_runtime() -> float:
     """
     Executes async_comprehension four times in parallel and measures
     the total runtime.
-    
+
     Returns:
         Total runtime for four async_comprehension calls.
     """
