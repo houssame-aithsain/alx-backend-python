@@ -7,8 +7,6 @@ from unittest.mock import patch, PropertyMock
 from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 from utils import get_json
-from client import GithubOrgClient
-from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -57,10 +55,10 @@ class TestGithubOrgClient(unittest.TestCase):
 
 @parameterized_class([
     {
-        "org_payload": org_payload,
-        "repos_payload": repos_payload,
-        "expected_repos": expected_repos,
-        "apache2_repos": apache2_repos
+        "org_payload": {"login": "google"},
+        "repos_payload": [{"name": "repo1"}, {"name": "repo2"}],
+        "expected_repos": ["repo1", "repo2"],
+        "apache2_repos": ["repo1"]
     },
 ])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
@@ -84,8 +82,4 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """Test GithubOrgClient.public_repos"""
         client = GithubOrgClient("google")
         self.assertEqual(client.public_repos(), self.expected_repos)
-
-    def test_public_repos_with_license(self):
-        """Test GithubOrgClient.public_repos with license"""
-        client = GithubOrgClient("google")
         self.assertEqual(client.public_repos("apache-2.0"), self.apache2_repos)
