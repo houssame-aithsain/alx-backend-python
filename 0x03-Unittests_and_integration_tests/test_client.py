@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Unit tests for GithubOrgClient"""
 
+
 import unittest
 from unittest.mock import patch, PropertyMock
 from parameterized import parameterized, parameterized_class
@@ -20,8 +21,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """Test GithubOrgClient.org"""
         client = GithubOrgClient(org_name)
         self.assertEqual(client.org, expected)
-        mock_get_json.assert_called_once_with(f"https://api.github\
-                                              .com/orgs/{org_name}")
+        mock_get_json.assert_called_once_with(
+            f"https://api.github.com/orgs/{org_name}")
 
     @patch('client.GithubOrgClient.org', new_callable=PropertyMock)
     def test_public_repos_url(self, mock_org):
@@ -30,10 +31,10 @@ class TestGithubOrgClient(unittest.TestCase):
         client = GithubOrgClient("test_org")
         self.assertEqual(client._public_repos_url, "http://example.com/repos")
 
-    @patch('client.get_json', return_value=[{"name": "\
-                                             repo1"}, {"name": "repo2"}])
-    @patch('client.GithubOrgClient._public_repos_url\
-           ', new_callable=PropertyMock)
+    @patch('client.get_json', return_value=[
+        {"name": "repo1"}, {"name": "repo2"}])
+    @patch('client.GithubOrgClient._public_repos_url',
+           new_callable=PropertyMock)
     def test_public_repos(self, mock_public_repos_url, mock_get_json):
         """Test GithubOrgClient.public_repos"""
         mock_public_repos_url.return_value = "http://example.com/repos"
